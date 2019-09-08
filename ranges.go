@@ -1,11 +1,4 @@
-/* ranges.go
-- range iterates over element in various data structs.
-- range returns index & value for each entry on
-  arrays & slices.
-- range iterates over key:val pairs in maps.
-- range iterates over Unicode code points in strings.
-
-*/
+/* ranges.go */
 
 package main
 
@@ -13,29 +6,40 @@ import "fmt"
 
 func main() {
 
-    nums := []int{2, 3, 4}
-    sum := 0
-    for _, num := range nums {
-        sum += num
-    }
-    fmt.Println("sum:", sum)
+	// using range to sum numbers in a slice.
 
-    for i, num := range nums {
-        if num == 3 {
-            fmt.Println("index:", i)
-        }
-    }
+	nums := []int{2, 3, 4}
+	sum := 0
+	for _, num := range nums {
+		sum += num
+	}
+	fmt.Println("sum:", sum)
 
-    kvs := map[string]string{"a": "apple", "b": "banana"}
-    for k, v := range kvs {
-        fmt.Printf("%s -> %s\n", k, v)
-    }
+	// range on arrays & slices provides the index
+	// & value for each entry.
 
-    for k := range kvs {
-        fmt.Println("key:", k)
-    }
+	for i, num := range nums {
+		if num == 3 {
+			fmt.Println("index:", i)
+		}
+	}
 
-    for i, c := range "go" {
-        fmt.Println(i, c)
-    }
+	// range on maps - iterates over key:value pairs
+
+	kvs := map[string]string{"a": "apple", "b": "banana"}
+	for k, v := range kvs {
+		fmt.Printf("%s -> %s\n", k, v)
+	}
+
+	// range iterating over just the keys of a map
+
+	for k := range kvs {
+		fmt.Println("key:", k)
+	}
+
+	// range on strings iterates over Unicode
+
+	for i, c := range "go" {
+		fmt.Println(i, c)
+	}
 }

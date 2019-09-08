@@ -1,7 +1,4 @@
-/* values.go
-- go supports strings, integers, floats, booleans, etc.
-- here's some basic examples.
-*/
+/* values.go */
 
 package main
 
@@ -9,12 +6,18 @@ import "fmt"
 
 func main() {
 
-    fmt.Println("go" + "lang")
+	// string concatenation with "+"
 
-    fmt.Println("1+1 =", 1+1)
-    fmt.Println("7.0/3.0 =", 7.0/3.0)
+	fmt.Println("go" + "lang")
 
-    fmt.Println(true && false)
-    fmt.Println(true || false)
-    fmt.Println(!true)
+	// integer & float support
+
+	fmt.Println("1+1 =", 1+1)
+	fmt.Println("7.0/3.0 =", 7.0/3.0)
+
+	// typical boolean operators.
+
+	fmt.Println(true && false)
+	fmt.Println(true || false)
+	fmt.Println(!true)
 }

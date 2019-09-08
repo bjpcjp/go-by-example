@@ -1,12 +1,4 @@
-/* arrays.go
-- array element types & length of part of the definition.
-- default fill value is zero.
-- array[index]=value; array[index] returns value.
-- len: returns array length.
-- arrays are 1D; you can compose types to build multi-D
-  data structures.
-- slices are much more common than arrays in Go.
-*/
+/* arrays.go */
 
 package main
 
@@ -14,23 +6,35 @@ import "fmt"
 
 func main() {
 
-    var a [5]int
-    fmt.Println("emp:", a)
+	// create array to hold exactly 5 integers.
+	// element types & length are declared.
+	// default arrays are zero-valued.
 
-    a[4] = 100
-    fmt.Println("set:", a)
-    fmt.Println("get:", a[4])
+	var a [5]int
+	fmt.Println("emp:", a)
 
-    fmt.Println("len:", len(a))
+	// normal get & set array terminology
 
-    b := [5]int{1, 2, 3, 4, 5}
-    fmt.Println("dcl:", b)
+	a[4] = 100
+	fmt.Println("set:", a)
+	fmt.Println("get:", a[4])
 
-    var twoD [2][3]int
-    for i := 0; i < 2; i++ {
-        for j := 0; j < 3; j++ {
-            twoD[i][j] = i + j
-        }
-    }
-    fmt.Println("2d: ", twoD)
+	// len
+
+	fmt.Println("len:", len(a))
+
+	// declare & initialize array in one statement
+
+	b := [5]int{1, 2, 3, 4, 5}
+	fmt.Println("dcl:", b)
+
+	// arrays are 1D; you can build multi-D structures.
+
+	var twoD [2][3]int
+	for i := 0; i < 2; i++ {
+		for j := 0; j < 3; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d: ", twoD)
 }

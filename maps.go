@@ -1,15 +1,7 @@
 /* maps.go
-- maps are go's built-in associative data type (aka hashes or dicts)
-- create an empty map, use "make(map[keytype]valtype)
-- set key:val pairs with name[key]=value.
-- get a key value with name[key].
-- len returns the number of key:val pairs
-- delete removes key:val pairs
-- optional 2nd return value indicates whether the given
-  key was present in the map. this can be ignored via
-  a blank identifier "_".
 
-*/
+maps = built-in associative data type
+(aka hashes or dicts) */
 
 package main
 
@@ -17,24 +9,38 @@ import "fmt"
 
 func main() {
 
-    m := make(map[string]int)
+	// create an empty map with make
 
-    m["k1"] = 7
-    m["k2"] = 13
+	m := make(map[string]int)
 
-    fmt.Println("map:", m)
+	// set key:value pairs
 
-    v1 := m["k1"]
-    fmt.Println("v1: ", v1)
+	m["k1"] = 7
+	m["k2"] = 13
 
-    fmt.Println("len:", len(m))
+	fmt.Println("map:", m)
 
-    delete(m, "k2")
-    fmt.Println("map:", m)
+	// get value from a key
 
-    _, prs := m["k2"]
-    fmt.Println("prs:", prs)
+	v1 := m["k1"]
+	fmt.Println("v1: ", v1)
 
-    n := map[string]int{"foo": 1, "bar": 2}
-    fmt.Println("map:", n)
+	// len
+
+	fmt.Println("len:", len(m))
+
+	// delete key:value pair
+
+	delete(m, "k2")
+	fmt.Println("map:", m)
+
+	// optional 2nd return value - indicates whether
+	// key is present in a map
+	// can ignore value itself with "_"
+
+	_, prs := m["k2"]
+	fmt.Println("prs:", prs)
+
+	n := map[string]int{"foo": 1, "bar": 2}
+	fmt.Println("map:", n)
 }

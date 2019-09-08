@@ -1,14 +1,6 @@
 /* slices.go
-- slices are typed by their elements.
-- use "make" to create empty slice with non-zero length.
-- getters & setters work just like arrays.
-- "len" returns slice length.
-- "append" returns new slice with new values
-- slices can be copied.
-- slice operator: slice[low:high]
-- slices can be used to build multi-d data structs.
-- more details at:
-  http://blog.golang.org/go-slices-usage-and-internals
+more details at:
+http://blog.golang.org/go-slices-usage-and-internals
 */
 
 package main
@@ -17,44 +9,57 @@ import "fmt"
 
 func main() {
 
-    s := make([]string, 3)
-    fmt.Println("emp:", s)
+	// use make to create empty non-zero-length slices
 
-    s[0] = "a"
-    s[1] = "b"
-    s[2] = "c"
-    fmt.Println("set:", s)
-    fmt.Println("get:", s[2])
+	s := make([]string, 3)
+	fmt.Println("emp:", s)
 
-    fmt.Println("len:", len(s))
+	// getters, setters & len, just like arrays
 
-    s = append(s, "d")
-    s = append(s, "e", "f")
-    fmt.Println("apd:", s)
+	s[0] = "a"
+	s[1] = "b"
+	s[2] = "c"
+	fmt.Println("set:", s)
+	fmt.Println("get:", s[2])
+	fmt.Println("len:", len(s))
 
-    c := make([]string, len(s))
-    copy(c, s)
-    fmt.Println("cpy:", c)
+	// append
 
-    l := s[2:5]
-    fmt.Println("sl1:", l)
+	s = append(s, "d")
+	s = append(s, "e", "f")
+	fmt.Println("apd:", s)
 
-    l = s[:5]
-    fmt.Println("sl2:", l)
+	// copy
 
-    l = s[2:]
-    fmt.Println("sl3:", l)
+	c := make([]string, len(s))
+	copy(c, s)
+	fmt.Println("cpy:", c)
 
-    t := []string{"g", "h", "i"}
-    fmt.Println("dcl:", t)
+	// slice operator: [low:high]
 
-    twoD := make([][]int, 3)
-    for i := 0; i < 3; i++ {
-        innerLen := i + 1
-        twoD[i] = make([]int, innerLen)
-        for j := 0; j < innerLen; j++ {
-            twoD[i][j] = i + j
-        }
-    }
-    fmt.Println("2d: ", twoD)
+	l := s[2:5]
+	fmt.Println("sl1:", l)
+
+	l = s[:5]
+	fmt.Println("sl2:", l)
+
+	l = s[2:]
+	fmt.Println("sl3:", l)
+
+	// declare & initialize in a single statement
+
+	t := []string{"g", "h", "i"}
+	fmt.Println("dcl:", t)
+
+	// multi-D slice creation
+
+	twoD := make([][]int, 3)
+	for i := 0; i < 3; i++ {
+		innerLen := i + 1
+		twoD[i] = make([]int, innerLen)
+		for j := 0; j < innerLen; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d: ", twoD)
 }
