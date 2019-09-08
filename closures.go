@@ -6,6 +6,9 @@ package main
 
 import "fmt"
 
+// intSeq's internal anonymous function
+// forms a closure around the variable i.
+
 func intSeq() func() int {
 	i := 0
 	return func() int {

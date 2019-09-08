@@ -1,10 +1,12 @@
 /* variadic-functions.go
-- functions that can be called with varying numbers of arguments.
+functions that can be called with varying numbers of arguments.
 */
 
 package main
 
 import "fmt"
+
+// this example takes arbitrary number of integers
 
 func sum(nums ...int) {
 	fmt.Print(nums, " ")
